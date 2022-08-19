@@ -4,11 +4,12 @@
   "description": "Simple CRUD ",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "nodemon": "nodemon app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HelithaSri/ExpressJs-Backend.git"
+    "url": "git+https://github.com/HelithaSri/ExpressJs-Backend.git"    
   },
   "keywords": [
     "Express",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/HelithaSri/ExpressJs-Backend#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
   }
 }
