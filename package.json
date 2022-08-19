@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HelithaSri/ExpressJs-Backend.git"    
+    "url": "git+https://github.com/HelithaSri/ExpressJs-Backend.git"
   },
   "keywords": [
     "Express",
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/HelithaSri/ExpressJs-Backend#readme",
   "dependencies": {
     "express": "^4.18.1",
+    "mysql": "^2.18.1",
     "nodemon": "^2.0.19"
   }
 }
