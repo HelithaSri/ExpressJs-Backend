@@ -64,4 +64,17 @@ router.put("/", (req, res) => {
   });
 });
 
+router.delete('/:id',(req,res)=>{
+    const id = req.params.id;
+    const query = "DELETE FROM customer WHERE id=?";
+    
+    connection.query(query,[id],(err,rows)=>{
+        if (err) throw err;
+        if (rows.affectedRows>0) {
+            res.send({'message':'Customer Deleted'})
+        }else{
+            res.send({'message':'Customer Not Found'})
+        }
+    })
+})
 module.exports = router;
