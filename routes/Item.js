@@ -21,13 +21,29 @@ connection.connect(function (err) {
   }
 });
 
-router.get('/',(req,res)=>{
-    const query = "SELECT * FROM item";
-    connection.query(query,(err,rows)=>{
-        if(err) throw err;
-        res.send(rows);
-    })
+router.get("/", (req, res) => {
+  const query = "SELECT * FROM item";
+  connection.query(query, (err, rows) => {
+    if (err) throw err;
+    res.send(rows);
+  });
+});
 
-})
+router.post("/", (req, res) => {
+  const id = req.body.id;
+  const name = req.body.name;
+  const qty = req.body.qty;
+  const price = req.body.price;
+
+  const query = "INSERT INTO item VALUES (?,?,?,?)";
+
+  connection.query(query, [id, name, qty, price], (err) => {
+    if (err) {
+      res.send({ message: "Duplicate entry" });
+    } else {
+      res.send({ message: "Item created!" });
+    }
+  });
+});
 
 module.exports = router;
