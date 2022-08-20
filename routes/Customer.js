@@ -45,4 +45,23 @@ router.post("/", (req, res) => {
   });
 });
 
+router.put("/", (req, res) => {
+  const id = req.body.id;
+  const name = req.body.name;
+  const address = req.body.address;
+
+  const query = "UPDATE customer SET name=?, address=? WHERE id=?";
+
+  connection.query(query, [name, address, id], (err, rows) => {
+    if (err) throw err;
+
+    if (rows.affectedRows > 0 ) {
+        res.send({'message':'user updated'})
+    }else{
+        res.send({'message':'user not found'})
+    }
+
+  });
+});
+
 module.exports = router;
