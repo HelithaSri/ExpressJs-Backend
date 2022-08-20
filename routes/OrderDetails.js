@@ -50,7 +50,7 @@ router.put("/", (req, res) => {
     const item_id = req.body.item_id;
     const qty = req.body.qty;
 
-  const query = "UPDATE order_details SET date=?, customer_id=? WHERE id=?";
+  const query = "UPDATE order_details SET item_id=?, qty=? WHERE order_id=?";
 
   connection.query(query, [item_id, qty, order_id], (err, rows) => {
     if (err) throw err;
@@ -63,9 +63,9 @@ router.put("/", (req, res) => {
   });
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:order_id", (req, res) => {
   const order_id  = req.params.order_id ;
-  const query = "DELETE FROM order_details WHERE id=?";
+  const query = "DELETE FROM order_details WHERE order_id=?";
 
   connection.query(query, [order_id ], (err, rows) => {
     if (err) throw err;
