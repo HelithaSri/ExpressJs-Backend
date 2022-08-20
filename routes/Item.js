@@ -65,4 +65,18 @@ router.put("/", (req, res) => {
   });
 });
 
+router.delete("/:id", (req, res) => {
+  const id = req.params.id;
+  const query = "DELETE FROM item WHERE id=?";
+
+  connection.query(query, [id], (err, rows) => {
+    if (err) throw err;
+    if (rows.affectedRows > 0) {
+      res.send({ message: "Item Deleted" });
+    } else {
+      res.send({ message: "Item Not Found" });
+    }
+  });
+});
+
 module.exports = router;
